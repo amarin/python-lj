@@ -1,0 +1,9 @@
+<html>
+<body>
+{% for post in posts %}
+	<h1>{{ post.posting_datetime_string.strftime("%d.%m.%Y") }}: {{ post.subject }}</h1>
+	<div>{{ post.content }}</div>
+	<div>Тэги: {{ post.tags }}</div>
+{% endfor %}
+</body>
+</html>

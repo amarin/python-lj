@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from .lj import LJException
+from .lj import LJServer
 
 __revision__ = "$Rev$"
 try:
@@ -11,7 +13,6 @@ import time
 import os.path
 import sys
 from optparse import OptionParser
-import lj
 
 
 """
@@ -66,10 +67,10 @@ def one_second_before(s):
 
 
 def backup(user, password, journal):
-    server = lj.LJServer('lj.py+backup; kemayo@gmail.com', 'Python-lj.py/0.0.1')
+    server = LJServer('lj.py+backup; kemayo@gmail.com', 'Python-lj.py/0.0.1')
     try:
         login = server.login(user, password, getpickws=True, getpickwurls=True)
-    except lj.LJException as e:
+    except LJException as e:
         sys.exit(e)
 
     # Load already-cached entries
@@ -81,8 +82,9 @@ def backup(user, password, journal):
     nj = update_journal_entries(server, journal)
 
     # Sync comments from the server
-    print("Downloading comments")
-    nc = update_journal_comments(server, journal)
+    # print("Downloading comments")
+    # nc = update_journal_comments(server, journal)
+    nc = 0
 
     print(("Updated %d entries and %d comments" % (nj, nc)))
 
