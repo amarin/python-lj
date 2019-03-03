@@ -79,20 +79,6 @@ class LjRecord(object):
         return self.data['url']
 
 
-def make_docx(unpacked_path):
-    zippath = os.path.join(destination, fn)
-
-    source_dirname = os.path.dirname(source_file)
-    source_filename = os.path.basename(source_file)
-
-    cwd = os.path.curdir
-    with ZipFile(zippath, 'w', ZIP_DEFLATED) as zip_dest:
-        os.chdir(source_dirname)
-        zip_dest.write(source_filename)
-
-    os.chdir(cwd)
-
-
 with open('/Users/amarin/dev/python-lj/kangaroo_mouse.pkl', 'rb') as pd:
     data = pickle.load(pd)
 # print(type(data))
