@@ -6,3 +6,5 @@ env2/
 .idea/
 build/
 *.egg-info/
+/render/
+/kangaroo_mouse.pkl
